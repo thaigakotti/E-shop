@@ -30,11 +30,11 @@ export default function App() {
           <Header />
             <Dashboard />
           </Route>
-          <Route path="/cart">
+          <Route exact path="/cart">
           <Header />
             <Cart />
           </Route>
-          <Route path="/ProductDetail">
+          <Route exact path="/ProductDetail">
           <Header />
             <ProductDetail />
           </Route>

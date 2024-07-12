@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Col, Row } from 'reactstrap';
+import { useHistory,  } from 'react-router-dom';
 
 const bull = (
   <Box
@@ -17,8 +18,12 @@ const bull = (
 );
 
 export default function BasicCard() {
+  const history  = useHistory()
   return (
     <div className='my-3'>
+    <button onClick={() => {
+      history.push('/cart')
+    }}>Next Page</button>
         <Row>
             <Col lg="4">
            
