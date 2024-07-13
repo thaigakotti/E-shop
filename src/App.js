@@ -12,6 +12,7 @@ import Header from "./Component/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Products from "./Component/Products";
+import Productinfo from "./Component/Productinfo";
 
 
 
@@ -31,6 +32,11 @@ export default function App(props) {
           <Route exact path="/Products/:name">
           <Header />
             <Products/>
+          </Route>
+
+          <Route exact path="/Productsinfo">
+          <Header />
+            <Productinfo/>
           </Route>
         </Switch>
    

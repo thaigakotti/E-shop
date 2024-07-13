@@ -1,12 +1,14 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { Breadcrumb, BreadcrumbItem, Col, Row } from 'reactstrap'
 
 import Produtsp from '../assests/fruits.jpg'
 import Product from './Product'
+import { products } from './Productlist'
+
 function Products(props) {
    const location = useLocation()
-  
+  const history = useHistory()
   return (
     <div>
         
@@ -21,37 +23,21 @@ function Products(props) {
     </BreadcrumbItem>
   </Breadcrumb>
 
-  <Row >
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
+  <Row  >
+    {products.filter(d => d.category_id === location.state.CategoryInfo.id).map((data, index) => (
 
-    } />
-    </Col>
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
+  
+    <Col lg='3' key={index}>
+    <Product title={data.name} photo={Produtsp
+  
+    }
+    info={data}
+    
+    />
 
-    } />
     </Col>
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
+      ))}
 
-    } />
-    </Col>
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
-
-    } />
-    </Col>
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
-
-    } />
-    </Col>
-    <Col lg='3'>
-    <Product title={"test"} photo={Produtsp
-
-    } />
-    </Col>
   </Row>
     </div>
   )

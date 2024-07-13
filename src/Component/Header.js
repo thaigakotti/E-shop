@@ -4,15 +4,16 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Logo from '../assests/logo.jpg'
 import { useSelector } from 'react-redux';
+
 function Header() {
-  const count = useSelector((state) => state.counter)
-  console.log(count)
+  const count =  useSelector(state => state.counter)
+  
   return (
     <div >
         
         <Navbar
   className='py-3'
-    style={{ backgroundColor: '#3F5F40', color:"#fafafa" }} light
+    style={{ backgroundColor: '#3F5F40', color:"#fafafa", }} light
   >
     <NavbarBrand href="/">
       <img
