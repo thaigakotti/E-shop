@@ -9,19 +9,13 @@ import {
 import Cart from "./Component/Cart";
 import Dashboard from "./Component/Dashboard";
 import Header from "./Component/Header";
-import ProductDetail from "./Component/ProductDetail";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+import './App.css'
+import Products from "./Component/Products";
 
 
-export default function App() {
+
+export default function App(props) {
   return (
     <Router>
      
@@ -34,9 +28,9 @@ export default function App() {
           <Header />
             <Cart />
           </Route>
-          <Route exact path="/ProductDetail">
+          <Route exact path="/Products/:name">
           <Header />
-            <ProductDetail />
+            <Products/>
           </Route>
         </Switch>
    
@@ -44,7 +38,5 @@ export default function App() {
   );
 }
 
-// You can think of these components as "pages"
-// in your app.
 
 

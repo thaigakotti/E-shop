@@ -2,50 +2,36 @@ import React from 'react'
 import { Col, Navbar, NavbarBrand, Row } from 'reactstrap'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
+import Logo from '../assests/logo.jpg'
+import { useSelector } from 'react-redux';
 function Header() {
+  const count = useSelector((state) => state.counter)
+  console.log(count)
   return (
-    <div>
+    <div >
         
         <Navbar
-    className="mp-2 my-0"
-    style={{ backgroundColor: '#748269', color:"#fafafa" }} light
+  className='py-3'
+    style={{ backgroundColor: '#3F5F40', color:"#fafafa" }} light
   >
     <NavbarBrand href="/">
-      {/* <img
+      <img
         alt="logo"
-       // src="/logo-white.svg"
+        src={Logo}
         style={{
-          height: 40,
-          width: 40
+          height: 50,
+          width: 50,
+          objectFit:'contain'
         }}
         
-      /> */}
-      <h6>E-Shop</h6>
+      />
+      {/* <h6 style={{color:"#fafafa"}}>E-Shop</h6> */}
     </NavbarBrand>
-    <NavbarBrand href="/" style={{right:0}}>
-      {/* <img
-        alt="logo"
-       // src="/logo-white.svg"
-        style={{
-          height: 40,
-          width: 40
-        }}
-        
-      /> */}
-      {/* <h6>E-Shop</h6> */}
-      <Row>
-      <Col lg="3">
-      <ShoppingCartOutlinedIcon color='#fafafa'/>
-      </Col>
-      <Col lg="3">
-   
-      </Col>
-      <Col lg="3">
-      <SettingsIcon color='#fafafa'/>
-      </Col>
-      </Row>
+    <NavbarBrand href="/">
+<ShoppingCartOutlinedIcon color='#fafafa' />
+<h6>{count}</h6>
     </NavbarBrand>
-   
+ 
     
   </Navbar>
     </div>
