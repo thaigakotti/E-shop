@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Category from './Category'
 import { Breadcrumb, BreadcrumbItem, Col, Container, Row } from 'reactstrap'
-import Vegitable from '../assests/vegitable.jpg'
-import Fruits from '../assests/fruits.jpg'
-import foods from '../assests/foods.jpg'
+import Vegitable from '../assets/vegitable.jpg'
+import Fruits from '../assets/fruits.jpg'
+import foods from '../assets/foods.jpg'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 function Dashboard(props) {
 
@@ -28,11 +28,11 @@ function Dashboard(props) {
 
   const history = useHistory()
   return (
-    <Container>
+    <Container style={{paddingTop:'100px'}}>
        <Breadcrumb className='mt-2 ml-2'>
-    <BreadcrumbItem>
+    <BreadcrumbItem >
      
-        Category
+        <h3>Category</h3>
      
     </BreadcrumbItem>
 

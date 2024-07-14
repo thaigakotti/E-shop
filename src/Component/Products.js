@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
-import { Breadcrumb, BreadcrumbItem, Button, Col, Input, InputGroup, Row } from 'reactstrap'
-
-import Produtsp from '../assests/fruits.jpg'
+import {  Button, Col, Container, Input, InputGroup, Row } from 'reactstrap'
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import Produtsp from '../assets/fruits.jpg'
 import Product from './Product'
 // import { products } from './Productlist'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast ,ToastContainer} from 'react-toastify'
+import { Typography } from '@mui/material';
 
 function Products(props) {
    const location = useLocation()
@@ -22,37 +25,52 @@ function Products(props) {
    
 
   return (
-    <div>
+    <Container style={{paddingTop:'100px'}}>
         
-        <Breadcrumb className='mt-2 ml-2'>
-    <BreadcrumbItem>
+        {/* <Breadcrumb className='mt-2 ml-2'>
+    <BreadcrumbItem style={{cursor:'pointer'}} onClick={() => {
+      history.push('/')
+    }}>
      
-        Category
+        <h3>Category / {location.state.CategoryInfo.CategoryName}</h3>
      
     </BreadcrumbItem>
-    <BreadcrumbItem active>
-      {location.state.CategoryInfo.CategoryName}
-    </BreadcrumbItem>
-  </Breadcrumb>
+    {/* <BreadcrumbItem active>
+    
+    </BreadcrumbItem> 
+  </Breadcrumb> */}
+
+<Breadcrumbs aria-label="breadcrumb">
+  <Link underline="hover" color="inherit" >
+  Category
+  </Link>
+
+  <Typography color="text.primary">{location.state.CategoryInfo.CategoryName}</Typography>
+</Breadcrumbs>
 
   <Row  >
     {ProductCollection.filter(d => d.category_id === location.state.CategoryInfo.id).map((data, index) => (
 
   
     <Col lg='3' key={index} >
-    <Product title={data.name} photo={Produtsp}
+    <Product title={data.name} photo={data.image}
     Productdata={data}
     Qty={data.qty}
     Buttons={ data.iscart === 'N'  ? (
-      <Button style={{backgroundColor:'#3F5F40'}} onClick={() => dispatch({ type: "AddtoCart", data })}>Add To Cart </Button>
+      <Button style={{backgroundColor:'#3F5F40'}} onClick={() => {
+        dispatch({ type: "AddtoCart", data })
+        toast.success('Product Added In The Cart', {autoClose:400});
+    
+      }}>Add To Cart </Button>
 
   ):
  
   <InputGroup className='mt-2'>
 
-<Button style={{backgroundColor:'#3F5F40'}} onClick={() => dispatch({ type: "RemovetoCart", data })}>-</Button>
+<Button style={{backgroundColor:'#3F5F40'}} disabled={data.qty ===1} onClick={() => dispatch({ type: "RemovetoCart", data })}>-</Button>
 
 <Input
+readOnly
 type="number"
 value={data.qty}
 // onChange={(handleChange)}
@@ -79,7 +97,8 @@ style={{ textAlign: 'center' }}
       ))}
 
   </Row>
-    </div>
+  <ToastContainer />
+    </Container>
   )
 }
 

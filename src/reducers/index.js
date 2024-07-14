@@ -4,6 +4,7 @@ const initialState = {
     cartcount: 0,
     products:Productinfo,
     cart:[],
+    orders: []
     
   };
   
@@ -14,13 +15,15 @@ const initialState = {
           case "AddtoCart":
           
               const existingProductIndex = state.cart.findIndex(item => item.id === action.data.id);
+              const existingProductIndex1 = state.products.findIndex(item => item.id === action.data.id);
+              console.log(existingProductIndex1)
               if (existingProductIndex >= 0) {
                 
                   const updatedCart = state.cart.map((item, index) =>
-                      index === existingProductIndex ? { ...item, qty: item.qty + 1 } : item
+                      index === existingProductIndex ? { ...item, qty: item.qty + 1 ,} : item
                   );
                   const updatedProduct = state.products.map((item, index) =>
-                    index === existingProductIndex ? { ...item, qty: item.qty + 1 } : item
+                    index === existingProductIndex1 ? { ...item, qty: item.qty + 1 } : item
                 );
                   return { ...state, products: updatedProduct, cart: updatedCart };
               } else {
@@ -35,14 +38,16 @@ const initialState = {
               const productIndex = state.cart.findIndex(item => item.id === action.data.id);
               if (productIndex >= 0) {
                   const updatedCart = state.cart.map((item, index) =>
-                      index === productIndex ? { ...item, qty: item.qty - 1 } : item
+                      index === productIndex ? { ...item, qty: item.qty - 1, } : item
                   ).filter(item => item.qty > 0);
                   const updatedProduct = state.products.map((item, index) =>
                     index === productIndex ? { ...item, qty: item.qty - 1 } : item
                 ).filter(item => item.qty > 0);
                   return { ...state, cart: updatedCart ,products:updatedProduct};
               }
-              return state;
+              return {...state,products:state.products};
+              case "OrderPlace":
+                return {...state,cart:[], orders:[...state.orders ,...action.data],products:Productinfo}
           default:
               return state;
       }

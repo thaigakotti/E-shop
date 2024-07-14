@@ -1,0 +1,70 @@
+.product-card {
+   /* / max-width: 800px; */
+    margin: 20px auto;
+    width: 80%;
+    height: 50%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-card img {
+    height: auto;
+  }
+  
+  .product-card .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-card .rating span {
+    margin-right: 10px;
+    color: #4CAF50;
+  }
+  
+  .product-card .price {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .product-card .original-price {
+    text-decoration: line-through;
+    margin-right: 10px;
+    color: #888;
+  }
+  
+  .product-card .discounted-price {
+    font-size: 1.25em;
+    color: #d9534f;
+    margin-right: 10px;
+  }
+  
+  .product-card .discount {
+    color: #d9534f;
+  }
+  
+  .product-card .description {
+    margin: 10px 0;
+  }
+  
+  .product-card .specification,
+  .product-card .services {
+    margin: 10px 0;
+  }
+  
+  .product-card .specification h6,
+  .product-card .services h6 {
+    margin-bottom: 5px;
+  }
+  
+  .product-card ul {
+    padding-left: 20px;
+    list-style: disc;
+  }
+  
+  .product-card ul li {
+    margin-bottom: 5px;
+  }
+  
