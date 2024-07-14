@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom'
-import { Breadcrumb, BreadcrumbItem, Row } from 'reactstrap'
+import { Breadcrumb, BreadcrumbItem, Col, Row } from 'reactstrap'
 import { useDispatch } from 'react-redux';
 function Productinfo() {
     const location = useLocation()
@@ -19,7 +19,14 @@ function Productinfo() {
   </Breadcrumb>
 
   <Row >
-
+<Row>
+<Col lg='6'>
+</Col>
+</Row>
+<Row>
+<Col lg='6'>
+</Col>
+</Row>
   </Row>
 
 

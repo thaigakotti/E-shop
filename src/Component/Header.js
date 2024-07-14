@@ -6,7 +6,7 @@ import Logo from '../assests/logo.jpg'
 import { useSelector } from 'react-redux';
 
 function Header() {
-  const count =  useSelector(state => state.counter)
+  const count =  useSelector(state => state.cart)
   
   return (
     <div >
@@ -30,7 +30,7 @@ function Header() {
     </NavbarBrand>
     <NavbarBrand href="/">
 <ShoppingCartOutlinedIcon color='#fafafa' />
-<h6>{count}</h6>
+<h6>{count.length}</h6>
     </NavbarBrand>
  
     
