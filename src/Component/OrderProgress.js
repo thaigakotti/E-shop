@@ -8,17 +8,17 @@ function CircularLoader() {
   const history = useHistory();
 
   useEffect(() => {
-    // Set a single timeout to handle both toast and navigation
+  
     const timer = setTimeout(() => {
       toast.success('Order Placed Successfully',{autoClose:400});
       
-      // Navigate to the home page after showing the toast
+     
       setTimeout(() => {
         history.push('/');
       }, 1000);
     }, 500);
 
-    // Clean up the timeout on component unmount
+    
     return () => clearTimeout(timer);
   }, [history]);
 

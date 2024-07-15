@@ -10,11 +10,11 @@ const Cart = () => {
   const history = useHistory();
 
   const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0); // Initialize total state
+  const [total, setTotal] = useState(0); 
 
   useEffect(() => {
     setCartItems(cartInfo);
-    // Calculate total whenever cartInfo changes
+ 
     const calculatedTotal = cartInfo.reduce((accumulator, currentValue) => {
       return accumulator + (currentValue.qty * currentValue.rate_inr);
     }, 0);
@@ -22,15 +22,7 @@ const Cart = () => {
   }, [cartInfo]);
 
   const placeOrder = () => {
-    const previousOrder = JSON.parse(localStorage.getItem('Orders')) || []; // Initialize as empty array if no previous orders
-
-    const order = [{
-      id: 1,
-      total: total,
-      items: cartItems
-    }];
-
-    localStorage.setItem('Orders', JSON.stringify(order.concat(previousOrder)));
+  
     dispatch({ type: "OrderPlace", data: order });
     history.push('/Progresspage');
   };

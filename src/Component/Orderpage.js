@@ -41,26 +41,7 @@ const OrderSummary = () => {
 console.log(orders)
       setOrderisCollection(orders)
     }, [])
-    
-//   const orders = [
-//     {
-//       id: 123,
-//       total: 480,
-//       items: [
-//         { id: 1, name: 'Tomato', price: 120, image: 'path-to-tomato-image' },
-//         { id: 2, name: 'Tomato', price: 120, image: 'path-to-tomato-image' },
-//       ],
-//     },
-//     {
-//       id: 124,
-//       total: 480,
-//       items: [
-//         { id: 3, name: 'Tomato', price: 120, image: 'path-to-tomato-image' },
-//         { id: 4, name: 'Tomato', price: 120, image: 'path-to-tomato-image' },
-//       ],
-//     },
-//   ];
- 
+
 const history = useHistory()
   
 
